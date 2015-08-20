@@ -6,6 +6,7 @@ import (
 	"bufio"
 	"io"
 	"github.com/xccvista/mahonia"
+	"strings"
 )
 //暂不支持含有中文相关的json
 
@@ -20,7 +21,7 @@ type midfile struct {
 func WriteJson(){
 	b:=[]byte(`{
 		"filename":"list.vm",
-		"filepath":"C:\\Users\\vista\\CODES\\workspace\\ws\\bss-web\\src\\main\\webapp\\WEB-INF\\pages\\banner\\",
+		"filepath":"C:/Users/vista/CODES/workspace/ws/bss-web/src/main/webapp/WEB-INF/pages/banner/",
 		"lastMD5":"aaaaaa",
 		"currentMD5":"bbbbb",
 		"scriptFile":["aaaaaa.js","bbbb.js","ccccc.js"]
@@ -34,7 +35,7 @@ func WriteJson(){
 
 	var a *midfile=&midfile{
 		Filename:"all.vm",
-		Filepath:"D:\\ad\\ada\\asdfa\\",
+		Filepath:"D:/ad/ada/asdfa/",
 		LastMD5:"nosql中文序列",
 		CurrentMD5:"asdfasdfa",
 	}
@@ -49,8 +50,10 @@ func WriteJson(){
 }
 
 func ReadFile(filepath string){
-
-	fi,err:=os.Open(filepath)
+//	PthSep :=string(os.PathSeparator)
+	fiac:=strings.Replace(filepath,`\`,"/",-1)
+	fmt.Println("-------"+fiac)
+	fi,err:=os.Open(fiac)
 	defer fi.Close();
 	if err!=nil{
 		fmt.Println(err.Error())

@@ -9,7 +9,7 @@ import(
 
 
 func main() {
-	files,err := utils.WalkDir("C:\\Users\\vista\\CODES\\workspace\\ws",".vm")
+	files,err := utils.WalkDir("C:/Users/vista/CODES/workspace/ws",".vm")
 	fmt.Println(err)
 	userFile := "files.txt"
 	fout,err:=os.Create(userFile)
