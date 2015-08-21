@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
-	"flag"
+//	"flag"
 	"io"
 	"io/ioutil"
 	"bufio"
-	"time"
+//	"time"
 )
 
 func read1(path string) string {
@@ -59,23 +59,22 @@ func read3(path string) string {
 
 func main() {
 
-	flag.Parse()
-	file := flag.Arg(0)
-	f, err := ioutil.ReadFile(file)
+
+	f, err := ioutil.ReadFile("C:/Users/vista/CODES/workspace/ws/bss-web/src/main/webapp/WEB-INF/pages/banner/list.vm")
 	if err != nil {
 		fmt.Printf("%s\n", err)
 		panic(err)
 	}
 	fmt.Println(string(f))
-	start := time.Now()
-	read1(file)
-	t1 := time.Now()
-	fmt.Printf("Cost time %v\n", t1.Sub(start))
-	read2(file)
-	t2 := time.Now()
-	fmt.Printf("Cost time %v\n", t2.Sub(t1))
-	read3(file)
-	t3 := time.Now()
-	fmt.Printf("Cost time %v\n", t3.Sub(t2))
+//	start := time.Now()
+//	read1(file)
+//	t1 := time.Now()
+//	fmt.Printf("Cost time %v\n", t1.Sub(start))
+//	read2(file)
+//	t2 := time.Now()
+//	fmt.Printf("Cost time %v\n", t2.Sub(t1))
+//	read3(file)
+//	t3 := time.Now()
+//	fmt.Printf("Cost time %v\n", t3.Sub(t2))
 
 }
